@@ -32,6 +32,8 @@ When you finish the first level to go to the next level, simply uncomment the le
 
 This project supports the `standard` js linter and `prettier`, installing both projects in your editor will help find typos and bugs. In atom, install the `linter` and `linter-eslint` packages.
 
+[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](http://standardjs.com)
+
 ## Support
 
 If you are having trouble running the exercises, please post an issue in github.

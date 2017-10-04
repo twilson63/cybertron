@@ -5,6 +5,7 @@
   "repository": {},
   "license": "MIT",
   "dependencies": {
+    "babel-eslint": "^8.0.1",
     "nanofp": "^1.3.3",
     "serve": "^6.2.0",
     "tap-browser-color": "^0.1.2",
