@@ -32,4 +32,8 @@ When you finish the first level to go to the next level, simply uncomment the le
 
 If you are having trouble running the exercises, please post an issue in github.
 
-[issues](/issues)
+[Report an Issue](/twilson63/cybertron/issues)
+
+## License
+
+MIT
