@@ -28,6 +28,10 @@ Open level1.js and start working on the exercises, each time you complete an exe
 
 When you finish the first level to go to the next level, simply uncomment the level run code in the index.js file and then open the level js file and start running that level.
 
+## Linter Support
+
+This project supports the `standard` js linter and `prettier`, installing both projects in your editor will help find typos and bugs. 
+
 ## Support
 
 If you are having trouble running the exercises, please post an issue in github.
