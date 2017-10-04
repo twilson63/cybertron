@@ -30,7 +30,7 @@ When you finish the first level to go to the next level, simply uncomment the le
 
 ## Linter Support
 
-This project supports the `standard` js linter and `prettier`, installing both projects in your editor will help find typos and bugs. 
+This project supports the `standard` js linter and `prettier`, installing both projects in your editor will help find typos and bugs. In atom, install the `linter` and `linter-eslint` packages.
 
 ## Support
 
