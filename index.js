@@ -17,3 +17,5 @@ level1()
 
 window.test = test
 tapeBrowserColor()
+
+console.log('Welcome to Cybertron\n')
