@@ -2,7 +2,7 @@ import R from 'ramda'
 const test = window.tape
 
 /**
- * Level 5 - Ramda All The Things
+ * Level 1
  *
  * Results Data
  */
@@ -40,41 +40,49 @@ const data = {
 }
 
 /**
- * Level 5 - Challenge 1
+ * Level 1 - Challenge 1
  *
  * map through the results.rows array and return a list of movie docs.
  */
 const challenge1 = () => {
-  const { map } = R
-  return null
+  return R.map(row => row.doc, data.rows)
 }
 
-/** Level 5 = Challenge 2
+/** Level 1 = Challenge 2
  *
  * map through the results.rows array and then filter all movies that were
  * filmed before 1990
  *
  */
 const challenge2 = () => {
-  const { map, filter } = R
-  return null
+  return R.filter(
+    movie => movie.year < '1990',
+    R.map(row => row.doc, data.rows)
+  )
 }
 
-/** level 5 - Challenge 3
+/** level 1 - Challenge 3
  *
  * Use reduce to group movies by decade 80s, 90s etc
- *  { '80s': [], '90s': [] }
  *
- * HINT: you will want to append each movie to the right group array
- * check out - append - http://ramdajs.com/docs/#append
  */
 const challenge3 = () => {
-  const { reduce, map, append } = R
-  return null
+  return R.reduce(
+    (acc, movie) => {
+      if (movie.year < '1990' && movie.year > '1979') {
+        acc['80s'] = R.append(movie, acc['80s'])
+      } else if (movie.year > '1989' && movie.year < '2000') {
+        acc['90s'] = R.append(movie, acc['90s'])
+      }
+      return acc
+    },
+    { '90s': [], '80s': [] },
+    R.map(row => row.doc, data.rows)
+  )
 }
 
 /**
- * Level 5 - Challenge 4
+ * Level 1 - Challenge 4
  *
  * map over the rows and pick the movie documents
  * transform to an array of strings `[name] - [year]`
@@ -84,17 +92,23 @@ const challenge3 = () => {
  *
  */
 const challenge4 = () => {
-  const { map, compose } = R
-  return null
+  return R.map(
+    R.compose(
+      movie => `<li>${movie}</li>`,
+      movieDoc => `${movieDoc.name} - ${movieDoc.year}`,
+      row => row.doc
+    ),
+    data.rows
+  )
 }
 
 export default () => {
-  test('Level 5 - Challenge 1', t => {
+  test('Level 1 - Challenge 1', t => {
     t.plan(1)
     t.deepEquals(R.pluck('doc', data.rows), challenge1())
   })
 
-  test('Level 5 - Challenge 2', t => {
+  test('Level 1 - Challenge 2', t => {
     t.plan(1)
     t.deepEquals(
       R.filter(
@@ -105,7 +119,7 @@ export default () => {
     )
   })
 
-  test('Level 5 - Challenge 3', t => {
+  test('Level 1 - Challenge 3', t => {
     t.plan(1)
     t.deepEquals(challenge3(), {
       '90s': [{ _id: '3', type: 'movie', name: 'Groundhog Day', year: '1993' }],
@@ -116,7 +130,7 @@ export default () => {
     })
   })
 
-  test('Level 5 - Challenge 4', t => {
+  test('Level 1 - Challenge 4', t => {
     t.plan(1)
     t.equals(
       challenge4().join(''),
