@@ -1,5 +1,5 @@
 import R from 'ramda'
-const test = window.tape
+import test from 'tape'
 
 /**
  * Level 5 - Ramda All The Things

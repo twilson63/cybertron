@@ -1,6 +1,6 @@
 import R from 'ramda'
 import fetch from 'isomorphic-fetch'
-const test = window.tape
+import test from 'tape'
 
 /**
  * Level 6
@@ -64,8 +64,20 @@ const challenge2 = deck => {
  * TBD
  *
  */
-const challenge3 = () => {
-  return null
+const challenge3 = (deck, validate) => {
+  const { reduce, append, __, ifElse, compose, contains, prop, always } = R
+  const correcthand = ['3S', '3H', '3C', 'AH', 'AS'] // create your own
+  const myhand = reduce(
+    (a, v) =>
+      ifElse(
+        compose(contains(__, correcthand), prop('code')),
+        append(__, a),
+        always(a)
+      )(v),
+    [],
+    deck.cards
+  ) // add your code here
+  validate(myhand, correcthand)
 }
 
 /**
@@ -83,7 +95,7 @@ export default () => {
     .then(res => res.json())
     .then(results => {
       const deck = results
-      test('Level 2 - Challenge 1', t => {
+      test('Level 6 - Challenge 1', t => {
         t.plan(1)
         t.deepEquals(challenge1(deck), {
           suit: 'CLUBS',
@@ -97,7 +109,7 @@ export default () => {
         })
       })
 
-      test('Level 2 - Challenge 2', t => {
+      test('Level 6 - Challenge 2', t => {
         t.plan(4)
         const { contains } = R
         const results = challenge2(deck)
@@ -106,6 +118,18 @@ export default () => {
         t.ok(contains(`img/KD`, results))
         t.ok(contains(`img/JH`, results))
         t.ok(contains(`img/JS`, results))
+      })
+
+      test('Level 6 - Challenge 3', t => {
+        const { pluck, sort, lt } = R
+        t.plan(1)
+        const desc = (a, b) => (lt(a, b) ? -1 : 1)
+        challenge3(deck, (actualHand, correctHand) => {
+          t.deepEquals(
+            sort(desc, pluck('code', actualHand)),
+            sort(desc, correctHand)
+          )
+        })
       })
     })
 }
