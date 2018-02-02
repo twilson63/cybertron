@@ -25,7 +25,7 @@ npm start
 
 * Use your favorite editor to open the project
 
-You will see 6 js files, called levelx.js and an index.js file.
+You will see 7 js files, called levelx.js and an index.js file.
 
 Open level1.js and start working on the exercises, each time you complete an
 exercise go to your browser and refresh the window to see the results.
