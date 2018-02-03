@@ -1,4 +1,11 @@
-# Project Cybertron
+<pre><code>
+ ____       _               _
+/ ___|    _| |__   ___ _ __| |_ _ __ ___  _ __
+| |  | | | | '_ \ / _ \ '__| __| '__/ _ \| '_ \
+| |__| |_| | |_) |  __/ |  | |_| | | (_) | | | |
+\____ \__, |_.__/ \___|_|   \__|_|  \___/|_| |_|
+      |___/
+</code></pre>
 
 Cybertron is a project that helps you practice your Functional JavaScript.
 Currently, there are 6 levels, and 4 exercises on each level. Try to complete
