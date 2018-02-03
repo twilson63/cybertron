@@ -8,7 +8,7 @@
 </code></pre>
 
 Cybertron is a project that helps you practice your Functional JavaScript.
-Currently, there are 6 levels, and 4 exercises on each level. Try to complete
+Currently, there are 7 levels, and 4 exercises on each level. Try to complete
 all 6 levels, then do it again! Get as many reps as you can and these commands
 will become more familiar.
 
