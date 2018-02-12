@@ -10,12 +10,12 @@ import level6 from './level6'
 import level7 from './level7'
 
 // level7()
-// level6()
+level6()
 // level5()
 // level4()
 // level3()
 // level2()
-level1()
+// level1()
 
 window.test = test
 tapeBrowserColor()

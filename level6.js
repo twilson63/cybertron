@@ -80,7 +80,7 @@ const challenge2 = deck => {
 const challenge3 = (deck, validate) => {
   const { reduce, append, __, ifElse, compose, contains, prop, always } = R
   const correcthand = ['3S', '3H', '3C', 'AH', 'AS'] // create your own
-  const myhand = null // add your code here
+  const myhand = [] // add your code here
   validate(myhand, correcthand)
 }
 
@@ -125,13 +125,13 @@ export default () => {
 
       test('Level 6 - Challenge 2', t => {
         t.plan(4)
-        const { contains } = R
+        const { contains, or } = R
         const results = challenge2(deck)
 
-        t.ok(contains('img/KH', results))
-        t.ok(contains(`img/KD`, results))
-        t.ok(contains(`img/JH`, results))
-        t.ok(contains(`img/JS`, results))
+        t.ok(contains('img/KH', or(results, '')))
+        t.ok(contains(`img/KD`, or(results, '')))
+        t.ok(contains(`img/JH`, or(results, '')))
+        t.ok(contains(`img/JS`, or(results, '')))
       })
 
       test('Level 6 - Challenge 3', t => {
