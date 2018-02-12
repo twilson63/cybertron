@@ -30,6 +30,9 @@ npm install
 npm start
 ```
 
+> Windows Users install browser-sync globally
+> `npm install browser-sync -g`
+
 * Use your favorite editor to open the project
 
 You will see 7 js files, called levelx.js and an index.js file.
