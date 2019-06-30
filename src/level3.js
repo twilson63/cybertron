@@ -1,5 +1,5 @@
-import test from 'tape'
-import { map, filter, reduce, compose, prop } from 'nanofp'
+import { test, assert } from 'tape-modern'
+import { map, filter, reduce, compose, prop } from 'ramda'
 
 const stars = [
   { first: 'elvis', last: 'presley', alive: false },
@@ -10,6 +10,7 @@ const stars = [
 const fullname = o => `${prop('first', o)} ${prop('last', o)}`
 
 /* Level 3 - rockstars */
+
 export default function() {
   const ex1 =
     'Use map to transform list of rockstar first,last name objects to objects with fullname'
@@ -35,9 +36,8 @@ export default function() {
   }
 
   /* tests to validate exercises go here */
-  test('test', assert => {
-    assert.plan(4)
-    assert.same(
+  test('Level 3', assert => {
+    assert.deepequals(
       exercise1(),
       [
         { fullname: 'elvis presley' },
@@ -48,12 +48,12 @@ export default function() {
       ex1
     )
 
-    assert.same(
+    assert.deepequals(
       exercise2(),
       [{ first: 'bob', last: 'dylan', alive: true }],
       ex2
     )
-    assert.equals(exercise3(), 3, ex3)
-    assert.same(exercise4(), 'bob dylan', ex4)
+    assert.equal(exercise3(), 3, ex3)
+    assert.equal(exercise4(), 'bob dylan', ex4)
   })
 }

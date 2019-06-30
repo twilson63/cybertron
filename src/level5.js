@@ -1,5 +1,6 @@
-import R from 'ramda'
-import test from 'tape'
+import { map, compose, filter, reduce, append, pluck, lt, __,
+ join, prop }  from 'ramda'
+import { test } from 'tape-modern'
 
 /**
  * Level 5 - Ramda All The Things
@@ -45,7 +46,6 @@ const data = {
  * map through the results.rows array and return a list of movie docs.
  */
 const challenge1 = () => {
-  const { map } = R
   return null
 }
 
@@ -56,7 +56,6 @@ const challenge1 = () => {
  *
  */
 const challenge2 = () => {
-  const { map, filter } = R
   return null
 }
 
@@ -69,7 +68,6 @@ const challenge2 = () => {
  * check out - append - http://ramdajs.com/docs/#append
  */
 const challenge3 = () => {
-  const { reduce, map, append } = R
   return null
 }
 
@@ -84,30 +82,26 @@ const challenge3 = () => {
  *
  */
 const challenge4 = () => {
-  const { map, compose } = R
-  return null
+  return [] 
 }
 
 export default () => {
   test('Level 5 - Challenge 1', t => {
-    t.plan(1)
-    t.deepEquals(R.pluck('doc', data.rows), challenge1())
+    t.deepequals(pluck('doc', data.rows), challenge1())
   })
 
   test('Level 5 - Challenge 2', t => {
-    t.plan(1)
-    t.deepEquals(
-      R.filter(
-        R.compose(R.lt(R.__, '1990'), R.prop('year')),
-        R.pluck('doc', data.rows)
+    t.deepequals(
+      filter(
+        compose(lt(__, '1990'), prop('year')),
+        pluck('doc', data.rows)
       ),
       challenge2()
     )
   })
 
   test('Level 5 - Challenge 3', t => {
-    t.plan(1)
-    t.deepEquals(challenge3(), {
+    t.deepequals(challenge3(), {
       '90s': [{ _id: '3', type: 'movie', name: 'Groundhog Day', year: '1993' }],
       '80s': [
         { _id: '1', type: 'movie', name: 'Ghostbusters', year: '1984' },
@@ -117,8 +111,7 @@ export default () => {
   })
 
   test('Level 5 - Challenge 4', t => {
-    t.plan(1)
-    t.equals(
+    t.equal(
       challenge4().join(''),
       '<li>Ghostbusters - 1984</li><li>Caddyshack - 1980</li><li>Groundhog Day - 1993</li>'
     )

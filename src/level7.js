@@ -1,4 +1,5 @@
-import R from 'ramda'
+import { append, pluck, max, reduce, add, compose, merge, split,
+prop, filter, contains, toString, reject, propEq, not, equals } from 'ramda'
 import test from 'tape'
 
 const todos = [
@@ -32,7 +33,6 @@ const todos = [
  *
  */
 const challenge1 = todos => {
-  const { append, pluck, max, reduce, add, compose, merge } = R
   return null
 }
 
@@ -59,7 +59,6 @@ const challenge1 = todos => {
  *
  */
 const challenge2 = (todos, criteria) => {
-  const { compose, split, contains, prop, filter, toString } = R
   return null
 }
 
@@ -76,7 +75,6 @@ const challenge2 = (todos, criteria) => {
  *
  */
 const challenge3 = (todos, id) => {
-  const { reject, propEq } = R
   return null
 }
 
@@ -97,7 +95,6 @@ const challenge3 = (todos, id) => {
  *
  */
 const challenge4 = (todos, id, todo) => {
-  const { reject, propEq, append, compose, not, equals } = R
   return null
 }
 

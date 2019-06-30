@@ -1,6 +1,9 @@
-import R from 'ramda'
-import fetch from 'isomorphic-fetch'
-import test from 'tape'
+import { or, contains, find, propEq, compose, map, filter, 
+  anyPass, join, path, reduce, append, __, ifElse, prop, 
+  always, sort, lt, pluck }  from 'ramda'
+
+//import fetch from 'isomorphic-fetch'
+import { test } from 'tape-modern'
 
 /**
  * Level 6
@@ -31,7 +34,6 @@ import test from 'tape'
 const challenge1 = deck => {
   // show card object
   // console.log(JSON.stringify(deck.cards[0], null, 2))
-  const { find, propEq } = R
   return null
 }
 
@@ -51,7 +53,6 @@ const challenge1 = deck => {
  *
  */
 const challenge2 = deck => {
-  const { compose, map, filter, anyPass, propEq, join, path } = R
 
   return null
 }
@@ -78,7 +79,6 @@ const challenge2 = deck => {
  *  Check out contains, prop, append, always, ifElse from ramdajs
  */
 const challenge3 = (deck, validate) => {
-  const { reduce, append, __, ifElse, compose, contains, prop, always } = R
   const correcthand = ['3S', '3H', '3C', 'AH', 'AS'] // create your own
   const myhand = [] // add your code here
   validate(myhand, correcthand)
@@ -94,14 +94,7 @@ const challenge3 = (deck, validate) => {
  *
  */
 const challenge4 = deck => {
-  const { sort, prop } = R
-  return sort((card1, card2) => {
-    if (prop('code', card1) < prop('code', card2)) {
-      return -1
-    } else {
-      return 1
-    }
-  }, deck.cards)
+  return false 
 }
 
 export default () => {
@@ -110,8 +103,7 @@ export default () => {
     .then(results => {
       const deck = results
       test('Level 6 - Challenge 1', t => {
-        t.plan(1)
-        t.deepEquals(challenge1(deck), {
+        t.deepequals(challenge1(deck), {
           suit: 'CLUBS',
           value: 'ACE',
           images: {
@@ -124,8 +116,7 @@ export default () => {
       })
 
       test('Level 6 - Challenge 2', t => {
-        t.plan(4)
-        const { contains, or } = R
+        
         const results = challenge2(deck)
 
         t.ok(contains('img/KH', or(results, '')))
@@ -135,11 +126,9 @@ export default () => {
       })
 
       test('Level 6 - Challenge 3', t => {
-        const { pluck, sort, lt } = R
-        t.plan(1)
         const desc = (a, b) => (lt(a, b) ? -1 : 1)
         challenge3(deck, (actualHand, correctHand) => {
-          t.deepEquals(
+          t.deepequals(
             sort(desc, pluck('code', actualHand)),
             sort(desc, correctHand)
           )
@@ -147,10 +136,8 @@ export default () => {
       })
 
       test('Level 6 - Challenge 4', t => {
-        const { pluck } = R
-        t.plan(1)
         const actual = pluck('code', challenge4(deck))
-        t.deepEquals(actual, [
+        t.deepequals(actual, [
           '0C',
           '0D',
           '0H',

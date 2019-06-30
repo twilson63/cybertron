@@ -1,6 +1,6 @@
-import test from 'tape'
+import { test } from 'tape-modern'
 import hex2color from './lib/hex2color'
-import { map, filter, reduce, compose } from 'nanofp'
+import { map, filter, reduce, compose } from 'ramda'
 
 export default function() {
   /* Level 2 - colors */
@@ -34,15 +34,14 @@ export default function() {
   }
 
   /* tests to validate exercises go here */
-  test('test', assert => {
-    assert.plan(4)
-    assert.same(
+  test('Level 2', assert => {
+    assert.deepequals(
       exercise1(),
       ['blue', 'beige', 'peru', 'rebeccapurple', 'orange'],
       ex1
     )
-    assert.same(exercise2(), ['#f5f5dc', '#cd853f', '#663399', '#ffa500'], ex2)
-    assert.equals(exercise3(), 3, ex3)
-    assert.equals(exercise4(), 2, ex4)
+    assert.deepequals(exercise2(), ['#f5f5dc', '#cd853f', '#663399', '#ffa500'], ex2)
+    assert.equal(exercise3(), 3, ex3)
+    assert.equal(exercise4(), 2, ex4)
   })
 }
