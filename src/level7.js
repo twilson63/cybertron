@@ -1,6 +1,6 @@
-import { append, pluck, max, reduce, add, compose, merge, split,
-prop, filter, contains, toString, reject, propEq, not, equals } from 'ramda'
-import test from 'tape'
+import { find, append, pluck, max, reduce, add, compose, merge, split,
+prop, filter, contains, toString, reject, propEq, not, equals, length } from 'ramda'
+import { test } from 'tape-modern'
 
 const todos = [
   { id: 1, text: 'Wake up', completed: true },
@@ -100,17 +100,12 @@ const challenge4 = (todos, id, todo) => {
 
 export default () => {
   test('Level 7 - Challenge 1', t => {
-    const { length } = R
-    t.plan(2)
     const result = challenge1(todos)
-    const { reduce, max, pluck } = R
     t.equals(length(result), 5)
     t.equals(reduce(max, 0, pluck('id', result || [])), 5)
   })
 
   test('Level 7 - Challenge 2', t => {
-    const { length } = R
-    t.plan(3)
     const results1 = challenge2(todos, 'text:r')
 
     t.equals(length(results1), 3)
@@ -121,15 +116,11 @@ export default () => {
   })
 
   test('Level 7 - Challenge 3', t => {
-    const { length } = R
-    t.plan(2)
     t.equals(length(challenge3(todos, 1)), 3)
     t.equals(length(challenge3(todos, 5)), 4)
   })
 
   test('Level 7 - Challenge 4', t => {
-    const { length, find, propEq } = R
-    t.plan(3)
     const todoUpdate = { id: 1, text: 'Beep', completed: false }
     const results = challenge4(todos, 1, todoUpdate)
     t.equals(length(results), 4)

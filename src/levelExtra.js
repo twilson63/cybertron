@@ -1,5 +1,5 @@
-import test from 'tape'
-import { map, filter, reduce, compose } from 'nanofp'
+import { test } from 'tape-modern'
+import { map, filter, reduce, compose } from 'ramda'
 
 const pets = [
   {
@@ -105,8 +105,7 @@ export default function() {
 
   /* tests to validate exercises go here */
   test('Exercise 1', assert => {
-    assert.plan(5)
-    assert.same(
+    assert.deepequals(
       exercise1(),
       [
         'Nuggett',
@@ -123,17 +122,17 @@ export default function() {
       ],
       ex1
     )
-    assert.same(
+    assert.deepequals(
       exercise2(),
       [{ name: 'Orange', age: 1, alive: false, type: 'fish' }],
       ex2
     )
-    assert.same(exercise3(), 19, ex3)
-    assert.same(
+    assert.deepequals(exercise3(), 19, ex3)
+    assert.deepequals(
       exercise4(),
       '| Golden Retriever | | German Shepherd | | Beagle | | Dachsund | | Walker Coon Hound | | Terrier |',
       ex4
     )
-    assert.same(exercise5(), 'Scrappy Spot Shyloh', ex5)
+    assert.deepequals(exercise5(), 'Scrappy Spot Shyloh', ex5)
   })
 }
