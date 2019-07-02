@@ -1,5 +1,5 @@
 import { map, compose, filter, reduce, append, pluck, lt, __,
- join, prop }  from 'ramda'
+ join, prop, path }  from 'ramda'
 import { test } from 'tape-modern'
 
 /**
@@ -43,7 +43,7 @@ const data = {
 /**
  * Level 5 - Challenge 1
  *
- * map through the results.rows array and return a list of movie docs.
+ * map through the data.rows array and return a list of movie docs.
  */
 const challenge1 = () => {
   return null
@@ -51,7 +51,7 @@ const challenge1 = () => {
 
 /** Level 5 = Challenge 2
  *
- * map through the results.rows array and then filter all movies that were
+ * map through the data.rows array and then filter all movies that were
  * filmed before 1990
  *
  */
