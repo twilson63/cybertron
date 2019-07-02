@@ -1,6 +1,6 @@
-import test from 'tape'
+import { test } from 'tape-modern'
 import getCards from './lib/get-cards'
-import { map, filter, reduce, compose } from 'nanofp'
+import { map, filter, reduce, compose } from 'ramda'
 
 export default function() {
   const ex1 = 'Use map to transform list of card data to list of images'
@@ -32,9 +32,8 @@ export default function() {
   }
 
   /* tests to validate exercises go here */
-  test('test', assert => {
-    assert.plan(4)
-    assert.same(
+  test('Level 4', assert => {
+    assert.deepequals(
       exercise1(),
       [
         '<img src=http://deckofcardsapi.com/static/img/6H.png />',
@@ -50,7 +49,7 @@ export default function() {
       ex1
     )
 
-    assert.same(
+    assert.deepequals(
       exercise2(),
       [
         {
@@ -76,8 +75,8 @@ export default function() {
       ],
       ex2
     )
-    assert.equals(exercise3(), 3, ex3)
-    assert.equals(
+    assert.equal(exercise3(), 3, ex3)
+    assert.equal(
       exercise4(),
       '<img src=http://deckofcardsapi.com/static/img/6H.png /><img src=http://deckofcardsapi.com/static/img/8H.png /><img src=http://deckofcardsapi.com/static/img/8C.png />',
       ex4
