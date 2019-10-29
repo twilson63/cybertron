@@ -107,10 +107,10 @@ export default () => {
           suit: 'CLUBS',
           value: 'ACE',
           images: {
-            svg: 'http://deckofcardsapi.com/static/img/AC.svg',
-            png: 'http://deckofcardsapi.com/static/img/AC.png'
+            svg: 'https://deckofcardsapi.com/static/img/AC.svg',
+            png: 'https://deckofcardsapi.com/static/img/AC.png'
           },
-          image: 'http://deckofcardsapi.com/static/img/AC.png',
+          image: 'https://deckofcardsapi.com/static/img/AC.png',
           code: 'AC'
         })
       })
