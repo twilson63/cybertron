@@ -124,7 +124,7 @@ export default () => {
     const todoUpdate = { id: 1, text: 'Beep', completed: false }
     const results = challenge4(todos, 1, todoUpdate)
     t.equal(length(results), 4)
-    t.deepEquals(find(propEq('id', 1), results || []), todoUpdate)
+    t.deepequals(find(propEq('id', 1), results || []), todoUpdate)
     const results2 = challenge4(todos, 3, todoUpdate)
     t.equal(results2, null)
   })
